@@ -13,7 +13,7 @@ const store = require("../db/store");
 
 module.exports = function (app) {
   app.get("/api/notes", function (req, res) {
-    res.json(notes);
+    res.json(store);
   });
 
   //   app.post("/api/notes", function (req, res) {
