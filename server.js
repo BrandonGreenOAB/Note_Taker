@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 
-// require("./routes/htmlRoutes")(app);
+require("./routes/htmlRoutes")(app);
 require("./routes/apiRoutes")(app);
 
 app.listen(PORT, () => console.log(`Server is listening on PORT: http://localhost:${PORT}`))

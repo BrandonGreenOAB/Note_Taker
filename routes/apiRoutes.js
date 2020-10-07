@@ -13,12 +13,13 @@ const store = require("../db/store");
 
 module.exports = function (app) {
   app.get("/api/notes", function (req, res) {
-    res.json(store);
+    res.json(notes);
   });
 
-  //   app.post("/api/notes", function (req, res) {
-  //     notesData = req.body;
-  //     notes.push(notesData);
-  //     res.send();
-  //   });
+  app.post("/api/notes", function (req, res) {
+    notesData = req.body;
+    console.log(notesData);
+    notes.push(notesData);
+    res.send(notes);
+  });
 };

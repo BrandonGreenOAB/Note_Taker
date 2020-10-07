@@ -10,4 +10,3 @@ class Notes {
 const read = function () {};
 const write = function () {};
 const del = function () {};
-
