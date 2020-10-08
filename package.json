@@ -1,0 +1,27 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "This application will allow you to take notes, save notes, and delete them.",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "uniqid": "^5.2.0",
+    "uuid": "^8.3.1",
+    "uuidv1": "^1.6.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrandonGreenOAB/Note_Taker.git"
+  },
+  "author": "Brandon Green",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrandonGreenOAB/Note_Taker/issues"
+  },
+  "homepage": "https://github.com/BrandonGreenOAB/Note_Taker#readme"
+}

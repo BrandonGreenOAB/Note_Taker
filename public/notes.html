@@ -47,17 +47,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/assets/js/index.js"></script>
-    <script type="text/javascript">
-      $(".fa-save").on("click", function (event) {
-        event.preventDefault();
-        var title = $(".note-title").val().trim();
-        var body = $(".note-textarea").val().trim();
-        const newNote = new Notes(title, body);
-
-        console.log(newNote);
-
-        // $.post("/api/notes", newNote, function (data) {});
-      });
-    </script>
   </body>
 </html>
