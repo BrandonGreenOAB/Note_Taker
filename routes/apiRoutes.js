@@ -12,20 +12,18 @@ module.exports = function (app) {
   app.get("/api/notes", function (req, res) {
     store
       .read()
-      .then((notes) => {
-        console.log(`${notes}, "api routes"`);
-        response.json(notes);
-      })
-      .catch((err) => res.status(500).json(err));
+      .then(data => JSON.parse(data))
+      .then(notes => res.json(notes))
+      .catch(err => res.status(500).json(err))
   });
 
   app.post("/api/notes", function (req, res) {
     req.body.id = uuid.v1();
     //Pass the data from the request to the class method
     store
-      .addnote(req.body)
-      .then((note) => res.json(note))
-      .catch((err) => res.status(500).json(err));
+      .addNote(req.body)
+      .then(note => res.json(note))
+      .catch(err => res.status(500).json(err));
   });
   //delete route
   app.delete("/api/notes/:id", function (req, res) {

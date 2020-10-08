@@ -15,21 +15,16 @@ class Store {
     return writeFileAsync("db/db.json", JSON.stringify(note));
   }
   // this reading the file db.json reading all the notes in the array, adding the single note to that array, then we're writing updated notes.
-  addnote(note) {
+  addNote(note) {
     return this.read()
-      .then((notes) => {
-        console.log(`${notes}, "read notes"`);
-        [...notes, note];
-      })
-      .then((newNotes) => {
-        console.log(`${newNotes}, "read"`);
-        // this.write(updatedNotes);
-      });
+      .then((data) => JSON.parse(data))
+      .then((notes) => [...notes, note])
+      .then((newNotes) => this.write(newNotes));
   }
 
   //del will delete the files. get notes and use filter method for ids.
   del(id) {
-    return this.getnotes().then((notes) => {
+    return this.getNotes().then((notes) => {
       notes
         .filter((note) => {
           note.id !== id;
