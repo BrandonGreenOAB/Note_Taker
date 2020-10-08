@@ -13,7 +13,7 @@ module.exports = function (app) {
     store
       .read()
       .then((notes) => {
-        console.log(notes);
+        console.log(`${notes}, "api routes"`);
         response.json(notes);
       })
       .catch((err) => res.status(500).json(err));
@@ -24,14 +24,14 @@ module.exports = function (app) {
     //Pass the data from the request to the class method
     store
       .addnote(req.body)
-      .then((note) => response.json(note))
+      .then((note) => res.json(note))
       .catch((err) => res.status(500).json(err));
   });
   //delete route
   app.delete("/api/notes/:id", function (req, res) {
     store
       .delete(req.params.id)
-      .then(() => response.json(notes))
+      .then(() => res.json(notes))
       .catch((err) => res.status(500).JSON(err));
   });
 };

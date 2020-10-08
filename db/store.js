@@ -18,11 +18,11 @@ class Store {
   addnote(note) {
     return this.read()
       .then((notes) => {
-        console.log(notes, "read notes");
+        console.log(`${notes}, "read notes"`);
         [...notes, note];
       })
-      .then((updatedNotes) => {
-        console.log(updatedNotes, "read");
+      .then((newNotes) => {
+        console.log(`${newNotes}, "read"`);
         // this.write(updatedNotes);
       });
   }
