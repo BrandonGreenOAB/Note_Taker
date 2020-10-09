@@ -22,17 +22,19 @@ class Store {
       .then((newNotes) => this.write(newNotes));
   }
 
+  //
+  getNotes() {
+    return this.read().then((notes) => JSON.parse(notes));
+  }
+
   //del will delete the files. get notes and use filter method for ids.
   del(id) {
-    return this.getNotes().then((notes) => {
-      notes
-        .filter((note) => {
-          note.id !== id;
-        })
-        .then((filteredNotes) => {
-          this.write(filteredNotes);
-        });
-    });
+    return this.getNotes()
+      .then((notes) => notes.filter((note) => note.id !== id))
+      .then((filteredNotes) => {
+        console.log(filteredNotes)
+        this.write(filteredNotes);
+      });
   }
 }
 
