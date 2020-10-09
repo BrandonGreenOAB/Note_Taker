@@ -22,7 +22,7 @@ class Store {
       .then((newNotes) => this.write(newNotes));
   }
 
-  //
+  // this function is getting the notes from the json.db
   getNotes() {
     return this.read().then((notes) => JSON.parse(notes));
   }
@@ -32,7 +32,7 @@ class Store {
     return this.getNotes()
       .then((notes) => notes.filter((note) => note.id !== id))
       .then((filteredNotes) => {
-        console.log(filteredNotes)
+        console.log(filteredNotes);
         this.write(filteredNotes);
       });
   }

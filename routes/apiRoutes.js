@@ -24,6 +24,8 @@ module.exports = function (app) {
       .addNote(req.body)
       .then((note) => res.json(note))
       .catch((err) => res.status(500).json(err));
+
+    res.send(req.body);
   });
   //delete route
   app.delete("/api/notes/:id", function (req, res) {
